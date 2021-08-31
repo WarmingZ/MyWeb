@@ -1,0 +1,16 @@
+﻿using MyWeb.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace MyWeb.Implementation
+{
+    public class Substraction : IOperation
+    {
+        public double Calculate(double lhsOperand, double rhsOperand)
+        {
+            return lhsOperand - rhsOperand;
+        }
+    }
+}

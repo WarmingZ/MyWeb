@@ -1,0 +1,27 @@
+﻿@model MyWeb.Models.CalcModel
+@{
+    ViewData["Title"] = "IndexCalculator";
+}
+
+<h1>IndexCalculator</h1>
+
+@using (Html.BeginForm("IndexCalculator", "Calc", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.LabelFor(m => m.lhsOperand) @Html.TextBoxFor(x => x.lhsOperand)
+    
+    <br />
+    @Html.LabelFor(m => m.rhsOperand) @Html.TextBoxFor(x => x.rhsOperand)
+    <br />
+    @Html.LabelFor(m => m.Result) @Html.TextBoxFor(x => x.Result)
+    <br />
+    @Html.DropDownListFor(m => m.calculationMethod, (Html.GetEnumSelectList(typeof(CalcModel.CalculationMethod))))
+    <input type="submit" />
+
+}
+<html>
+<head>
+
+</head>
+<body>
+</body>
+</html>
