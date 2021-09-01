@@ -5,23 +5,27 @@
 
 <h1>IndexCalculator</h1>
 
-@using (Html.BeginForm("IndexCalculator", "Calc", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.LabelFor(m => m.lhsOperand) @Html.TextBoxFor(x => x.lhsOperand)
-    
-    <br />
-    @Html.LabelFor(m => m.rhsOperand) @Html.TextBoxFor(x => x.rhsOperand)
-    <br />
-    @Html.LabelFor(m => m.Result) @Html.TextBoxFor(x => x.Result)
-    <br />
-    @Html.DropDownListFor(m => m.calculationMethod, (Html.GetEnumSelectList(typeof(CalcModel.CalculationMethod))))
-    <input type="submit" />
 
-}
 <html>
 <head>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
-<body>
+<body class="card-body">
+    <form asp-controller="Calc" asp-action="IndexCalculator" method="post">
+        <div class="form-group">
+            <label for="lhsOperand">First numbers:</label>
+            <input type="number" asp-for="lhsOperand" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="rhsOperand">Second numbers:</label>
+            <input type="number" asp-for="rhsOperand" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="Result" asp-for="Result">Result:</label>
+            <input  asp-for="Result" class="form-control" />
+        </div>
+        <select name="calculationMethod" asp-items="Html.GetEnumSelectList(typeof(CalcModel.CalculationMethod))"></select>
+        <input type="submit" />
+    </form>
 </body>
 </html>

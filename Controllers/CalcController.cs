@@ -4,6 +4,7 @@ using MyWeb.Interfaces;
 using MyWeb.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using static MyWeb.Models.CalcModel;
@@ -20,6 +21,9 @@ namespace MyWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> IndexCalculator(CalcModel model)
         {
+            Debug.WriteLine(model.lhsOperand);
+            Debug.WriteLine(model.rhsOperand);
+            Debug.WriteLine(model.Result);
             ModelState.Clear();
             var operation = GetOperation(model.calculationMethod);
             var calculator = new Calculator(operation);
